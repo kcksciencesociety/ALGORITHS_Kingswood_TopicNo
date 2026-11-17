@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" class="dark" style="color-scheme: dark;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EcoSpark — Operations Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      html, body {
+        background-color: #09090b;
+        color: #f4f4f5;
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .font-sans {
+        font-family: var(--font-sans);
+      }
+      .font-mono {
+        font-family: var(--font-mono);
+      }
+      .hub-canvas {
+        background-color: #09090b;
+        background-image:
+          radial-gradient(ellipse 80% 45% at 50% -10%, rgba(255, 255, 255, 0.045), transparent),
+          radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 100% 100%, 24px 24px;
+      }
+      .hub-card {
+        background: linear-gradient(180deg, rgba(24, 24, 27, 0.82) 0%, rgba(15, 15, 18, 0.92) 100%);
+        box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 8px 24px -12px rgba(0, 0, 0, 0.65);
+      }
+      .hub-panel {
+        background-color: #0e0e11;
+        box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+      }
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: #27272a #09090b;
+      }
+      *::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+      }
+      *::-webkit-scrollbar-track {
+        background: #09090b;
+      }
+      *::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 4px;
+      }
+      *::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46;
+      }
+      @keyframes viewEnter {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes filterSwap {
+        from {
+          opacity: 0;
+          transform: translateY(3px) scale(0.996);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes drawerSlideIn {
+        from {
+          opacity: 0.35;
+          transform: translateX(22px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes modalPopIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      @keyframes backdropFadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-view-enter {
+        animation: viewEnter 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-filter-swap {
+        animation: filterSwap 0.19s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-drawer-in {
+        animation: drawerSlideIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-modal-in {
+        animation: modalPopIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .animate-backdrop-in {
+        animation: backdropFadeIn 0.18s ease-out both;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-view-enter,
+        .animate-filter-swap,
+        .animate-drawer-in,
+        .animate-modal-in,
+        .animate-backdrop-in {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
